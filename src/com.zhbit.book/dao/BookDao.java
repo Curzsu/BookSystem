@@ -77,33 +77,34 @@ public class BookDao{
 
     }
 
-    /*这是一个根据分页做的查询*/
-    public List<Book> getByPage(int pageIndex, int pageSize) throws SQLException { //前者是当前在第几页，后者是每一页有多少条
-        Connection conn = DBHelper.getConnection();
-        String sql = "select * from book limit ?,?";
-        int offset = (pageIndex - 1) * pageSize;  //计算偏移量（详情见数据库的查询信息search_book）
-        List<Book> books = runner.query(conn, sql, new BeanListHandler<Book>(Book.class), offset, pageSize);
-        conn.close();
-        return books;
-    }
+    /*分页模块还未开发完毕，故先注释掉，日后有时间再开发*/
+//    /*这是一个根据分页做的查询*/
+//    public List<Book> getByPage(int pageIndex, int pageSize) throws SQLException { //前者是当前在第几页，后者是每一页有多少条
+//        Connection conn = DBHelper.getConnection();
+//        String sql = "select * from book limit ?,?";
+//        int offset = (pageIndex - 1) * pageSize;  //计算偏移量（详情见数据库的查询信息search_book）
+//        List<Book> books = runner.query(conn, sql, new BeanListHandler<Book>(Book.class), offset, pageSize);
+//        conn.close();
+//        return books;
+//    }
 
-    /*一个一个地查询*/
-    public Book getById(long id) throws SQLException {
-        Connection conn = DBHelper.getConnection();
-        String sql = "select * from book where id = ?";
-        Book book = runner.query(conn, sql, new BeanHandler<Book>(Book.class), id);
-        conn.close();
-        return book;
-    }
+//    /*一个一个地查询*/
+//    public Book getById(long id) throws SQLException {
+//        Connection conn = DBHelper.getConnection();
+//        String sql = "select * from book where id = ?";
+//        Book book = runner.query(conn, sql, new BeanHandler<Book>(Book.class), id);
+//        conn.close();
+//        return book;
+//    }
 
-    /*sql语句返回一行一列*/
-    public int getCount() throws SQLException {
-        Connection conn = DBHelper.getConnection();
-        String sql = "select count(id) from book";
-        Number data = runner.query(conn, sql, new ScalarHandler<>());  //java中，7中基本类型除了bool，都属于Number类型
-        int count = data.intValue(); //通过data.intValue()把数据拿过来。数据最终需要转成int类型
-        conn.close();
-        return count;
-    }
+//    /*sql语句返回一行一列*/
+//    public int getCount() throws SQLException {
+//        Connection conn = DBHelper.getConnection();
+//        String sql = "select count(id) from book";
+//        Number data = runner.query(conn, sql, new ScalarHandler<>());  //java中，7中基本类型除了bool，都属于Number类型
+//        int count = data.intValue(); //通过data.intValue()把数据拿过来。数据最终需要转成int类型
+//        conn.close();
+//        return count;
+//    }
 
 }

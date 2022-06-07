@@ -12,8 +12,6 @@ public class BookBiz {
     //需要一个BookDao对象
     BookDao bookDao = new BookDao();
 
-
-
     public List<Book> getBooksByTypeId(long typeId){  //根据编号获取书籍
         try {
             return bookDao.getBooksByTypeId(typeId);
@@ -53,51 +51,48 @@ public class BookBiz {
         return count;
     }
 
-    public List<Book> getByPage(int pageIndex, int pageSize){
-        TypeDao typeDao = new TypeDao();   //建立一个typeDao对象，方便调用里面的一些方法
-        List<Book> books = null;
-        try {
-            books = bookDao.getByPage(pageIndex, pageSize);
-            //处理type对象的数据问题
-            for(Book book : books){
-                long typeId = book.getTypeId();
-                book.getTypeId();     //此时这里还是个null
-                //根据typeId找到对应的type对象
-                Type type = typeDao.getById(typeId);
-                //设置给book.setType()
-                book.setType(type);  //完成每一个book对象的外键的设置
-            }
+//    public List<Book> getByPage(int pageIndex, int pageSize){
+//        TypeDao typeDao = new TypeDao();   //建立一个typeDao对象，方便调用里面的一些方法
+//        List<Book> books = null;
+//        try {
+//            books = bookDao.getByPage(pageIndex, pageSize);
+//            //处理type对象的数据问题
+//            for(Book book : books){
+//                long typeId = book.getTypeId();
+//                book.getTypeId();     //此时这里还是个null
+//                //根据typeId找到对应的type对象
+//                Type type = typeDao.getById(typeId);
+//                //设置给book.setType()
+//                book.setType(type);  //完成每一个book对象的外键的设置
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return books;
+//    }
 
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return books;
-
-    }
-
-    public Book getById(long id){
-        try {
-            return bookDao.getById(id);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public Book getById(long id){
+//        try {
+//            return bookDao.getById(id);
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     /**
      * 由行数算页数
      * @return
      */
-    public int getPageCount(int pageSize) {   //注意参数pageSize，有了pageSize才能知道能得到多少页
-        int pageCount = 0;
-        try {
-            //1、获取行数
-            int rowCount = bookDao.getCount(); //先得到所有的行数
-            //2、根据行数获取页数，每页多少条
-            pageCount = (rowCount - 1) / pageSize + 1;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return pageCount;
-    }
+//    public int getPageCount(int pageSize) {   //注意参数pageSize，有了pageSize才能知道能得到多少页
+//        int pageCount = 0;
+//        try {
+//            //1、获取行数
+//            int rowCount = bookDao.getCount(); //先得到所有的行数
+//            //2、根据行数获取页数，每页多少条
+//            pageCount = (rowCount - 1) / pageSize + 1;
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return pageCount;
+//    }
 }

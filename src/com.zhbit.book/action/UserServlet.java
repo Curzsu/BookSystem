@@ -85,7 +85,7 @@ switch (method){
     case "modifyPwd":   //修改密码
         // 1、获取用户输入的新密码
         String newPwd = req.getParameter("newpwd");  //newPwd就是jsp里定义的name
-        String newPwd2 = req.getParameter("newpwd2");  //判断两次输入密码是否一致
+        //String newPwd2 = req.getParameter("newpwd2");  //判断两次输入密码是否一致
 
         // 2、从session中获取用户的编号
         /*下面一句的意思：首先通过session.getAttribute("user")试图获取session中存有的user对象
@@ -107,7 +107,5 @@ switch (method){
         }
         break;
 }
-
-
     }
 }

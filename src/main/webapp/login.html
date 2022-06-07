@@ -42,9 +42,11 @@
                         <tr>
                             <td width="20%" rowspan="2">
                                 <ul>
-                                    <!--下面一段代码的作用还不是很清楚
-                                    <a href="javascript:void(0)">-->
-                                    <li><img src="./Images/book.jpg" />&nbsp;<a href="javascript:void(0)"></li>
+                                    <!--<a href="javascript:void(0)>的作用：
+                                    javascript:是伪协议，表示url的内容通过javascript执行。
+                                    void(0)计算结果为0，但在javascript上没有任何效果。表示不作任何操作，这样会防止链接跳转到其他页面。这么做往往是为了保留链接的样式，但不让链接执行实际操作。
+                                    也就是，当用户点击以后不会发生任何事。-->
+                                    <li><img src="./Images/book1.jpg" />&nbsp;<a href="javascript:void(0)"></li>
                                 </ul>
                              </td>
                         </tr>
@@ -60,7 +62,7 @@
                             <td valign="top" id="form">
                                 <form id="fmLogin" method="post" action="user.let?type=login">
                                     <table valign="top" width="50%">
-                                        <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:16px;">图书管理系统</h4></td></tr>
+                                        <tr><td colspan="2"><h4 style="letter-spacing:1px;font-size:35px;">图书管理系统</h4></td></tr>
                                         <tr><td>管理员：</td><td><input type="text" name="name" required /></td></tr>
                                         <tr><td>密&nbsp;&nbsp;&nbsp;&nbsp;码：</td><td><input type="password" name="pwd" required/></td></tr>
                                         <tr><td>验证码：</td><td style="position: relative;"><input type="text" name="valcode" value="" style="width:60px;"/>&nbsp;<img id="code" src="code.let" style="position: absolute; top:2px;" /></td></tr>

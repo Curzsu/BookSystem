@@ -1,5 +1,5 @@
 在项目开发过程中，记录一些笔记：
-1、biz的具体作用是什么，为什么要单独放在一个包里?
+1、biz、dao、action、bean之间的联系
 2、User user = null;这句语句是什么作用？
 3、UserServlet中，为什么还要再构建userBiz对象？
 4、背景色和前景色数值上的关系
@@ -23,3 +23,9 @@
 20、java包装类的好处，什么是包装类，自动装箱拆箱(https://blog.csdn.net/qq_29119581/article/details/78327759)
 21、开头@WebServlet("xxx")的作用
 22、application的创建和使用
+23、Servlet的作用：https://blog.csdn.net/weixin_43874210/article/details/89922131
+24、Javabean的作用https://blog.csdn.net/aKuang_JH/article/details/53166392
+25、MVC模型是什么，为什么要MVC模型？M、V、C分别指的是什么？
+26、项目开始前的准备工作，比如配置C3P0之类的，它们分别起到什么作用？
+27、什么是JDBC？作用是什么？
+28、request.getParameter()、request.setAttribute()、request.getAttribute() 区别https://blog.csdn.net/wrs120/article/details/79287607
